@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>AI 캐릭터 자동 프롬프트 페이지</title>
+<style>
+    body { font-family: Arial, sans-serif; background:#f5f7ff; padding:40px; line-height:1.6; }
+    .container { max-width:700px; margin:auto; background:white; padding:30px; border-radius:16px;
+                 box-shadow:0 4px 20px rgba(0,0,0,0.1); }
+    h1 { font-size:28px; margin-bottom:10px; }
+    .prompt-box { background:#eef2ff; padding:20px; border-radius:12px; white-space:pre-wrap;
+                  border:1px solid #cdd3ff; }
+    button { padding:12px 20px; margin-top:15px; font-size:16px; border:none; border-radius:10px;
+             cursor:pointer; background:#4c6fff; color:white; }
+    button:hover { background:#3a52d9; }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>ChatGPT 자동 프롬프트</h1>
+    <p>아래 버튼을 누르면 프롬프트가 자동으로 복사됩니다.<br>
+       그 다음 <strong>‘ChatGPT 열기’</strong> 버튼을 눌러 붙여넣기 하면 됩니다.</p>
+
+    <div class="prompt-box" id="prompt">
+흰색 배경, 귀여운 봉제인형 스타일의 캐릭터. 사용자가 올린 사진 속 인물의 포즈를 정확하게 모방하며, 부드러운 패브릭 질감과 둥글고 친근한 얼굴이 특징이다. 큰 타원형 눈에 작은 동공, 눈썹 표현을 유지하고 사용자 실제 머리색과 헤어스타일을 정확히 모방하고 있다. 의상 색상은 항상 하늘색 톤으로 통일하며, 영웅 망토와 앞면에 공정위 심볼 마크가 있는 단정한 디자인이다. 얼굴에 착용하고 있는 액세서리는 사용자가 올린 사진을 정확하게 모방한다. 전체적으로 봉제인형 같은 부드러운 입체감과 파스텔 색감이 강조된다.
+    </div>
+
+    <button onclick="copyText()">📋 프롬프트 복사하기</button>
+    <button onclick="window.open('https://chat.openai.com','_blank')">🤖 ChatGPT 열기</button>
+</div>
+
+<script>
+function copyText() {
+    const text = document.getElementById('prompt').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        alert("프롬프트가 복사되었습니다! ChatGPT에서 붙여넣기 하세요.");
+    });
+}
+</script>
+
+</body>
+</html>
